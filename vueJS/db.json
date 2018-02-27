@@ -19,5 +19,10 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "users": {
+      "firstname" : "test",
+      "lastname" : "testlast",
+      "age": 4
   }
 }

@@ -25,7 +25,7 @@ export default {
   postPost: function() {
      
     axios.post(`http://localhost:3000/posts`, {
-      body: this.postBody
+      body: this.postBody 
     })
     .then(response => {
       console.log(response);
