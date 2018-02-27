@@ -58,7 +58,7 @@
     data() {
       return {
         personaliaComp: true,
-        currentcomp: null,
+        perscurrentcomp: null,
         user: {
           firstname: null,
           lastname: null,
@@ -86,8 +86,7 @@
       swapComponent: function() {
   
         this.personaliaComp ? this.personaliaComp = false : this.personaliaComp = true;
-  
-        this.currentcomp = Personalia
+        this.perscurrentcomp = Personalia
   
   
       }
@@ -110,5 +109,11 @@
 <style>
   p.red {
     color: red;
+  }
+  .klikable {
+    color:#1269D3;
+  }
+  .klikable:hover {
+    cursor: pointer;
   }
 </style>
