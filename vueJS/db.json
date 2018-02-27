@@ -1,9 +1,8 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "boe",
+      "id": 1
     },
     {
       "body": "hey",
@@ -17,12 +16,15 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
-  "users": {
-      "firstname" : "test",
-      "lastname" : "testlast",
-      "age": 4
-  }
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Katrien",
+      "lastname": null,
+      "age": "21",
+      "address": null,
+      "sex": "Vrouw",
+      "email": ""
+    }
+  ]
 }
