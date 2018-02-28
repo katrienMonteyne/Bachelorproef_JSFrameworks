@@ -29,7 +29,7 @@
         </p>
         <p @click="swapComponent"> WIJZIG UW GEGEVENS HIER</p>
       </div>
-      <div :is="currentcomp">
+      <div :is="perscurrentcomp">
       </div>
     </div>
     <br>

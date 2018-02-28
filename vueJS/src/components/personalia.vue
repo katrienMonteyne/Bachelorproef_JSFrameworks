@@ -79,7 +79,7 @@
                     })
 
                 this.$parent.personaliaComp = true;
-                this.$parent.currentcomp = null;
+                this.$parent.perscurrentcomp = null;
 
     
     
