@@ -10,6 +10,7 @@ import {UserService} from '../user.service';
 export class ProfielComponent implements OnInit {
 
   user : User;
+  personalia : boolean = true;
 
   constructor(private userService: UserService) { }
 
@@ -23,6 +24,10 @@ export class ProfielComponent implements OnInit {
 
   editPersonalia() : void {
     console.log("KLIK");
+    
+    this.personalia = !this.personalia;
+    
+
   }
 
 

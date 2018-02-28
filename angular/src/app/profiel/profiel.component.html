@@ -1,6 +1,6 @@
 <h2>Personalia</h2>
 <hr>
-<div *ngIf="user">
+<div *ngIf="user && personalia">
 
   <p>{{user.firstname}} {{user.lastname}}</p>
   <p *ngIf="user.firstname == null || 
@@ -27,7 +27,10 @@
   </p>
 
   <button (click)="editPersonalia()">Wijzig uw gegevens</button>
+
+
 </div>
+<app-personalia [personalia]="personalia" [user]="user"></app-personalia>
 <br>
 <h2>Vaardigheden</h2>
 <hr>
