@@ -1,0 +1,36 @@
+<h2>Personalia</h2>
+<hr>
+<div *ngIf="user">
+
+  <p>{{user.firstname}} {{user.lastname}}</p>
+  <p *ngIf="user.firstname == null || 
+            user.lastname == null ||
+            user.firstname == '' ||
+            user.lastname == ''" class="red">
+    U heeft nog geen naam opgegeven.
+  </p>
+  <p>{{user.age}}</p>
+  <p *ngIf="user.age == null || user.age <= 0" class="red">
+    U heeft nog geen leeftijd opgegeven.
+  </p>
+  <p>{{user.address}}</p>
+  <p *ngIf="user.address == null || user.address == ''" class="red">
+    U heeft uw adres nog niet opgegeven.
+  </p>
+  <p>{{user.sex}}</p>
+  <p *ngIf="user.sex == null || user.sex == ''" class="red">
+    U heeft nog geen geslacht geselecteerd.
+  </p>
+  <p>{{user.email}}</p>
+  <p *ngIf="user.email == null || user.email ==''" class="red">
+    U heeft nog geen email opgegeven.
+  </p>
+
+  <button (click)="editPersonalia()">Wijzig uw gegevens</button>
+</div>
+<br>
+<h2>Vaardigheden</h2>
+<hr>
+<br>
+<h2>Werkervaring</h2>
+<hr>

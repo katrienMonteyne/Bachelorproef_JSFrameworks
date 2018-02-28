@@ -15,6 +15,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfielComponent } from './profiel/profiel.component';
+import { UserService } from './user.service';
+import { PersonaliaComponent } from './personalia/personalia.component';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfielComponent,
+    PersonaliaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     HeroService,
-    MessageService
+    MessageService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

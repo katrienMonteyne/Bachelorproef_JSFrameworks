@@ -3,10 +3,11 @@ import { RouterModule, Routes} from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { ProfielComponent } from './profiel/profiel.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo: '/dashboard', pathMatch: 'full'
+    path: '' , redirectTo: '/profiel', pathMatch: 'full'
   },
   {
     path:'heroes', component : HeroesComponent
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id', component: HeroDetailComponent
+  },
+  {
+    path: 'profiel', component: ProfielComponent
   }
 ]
 

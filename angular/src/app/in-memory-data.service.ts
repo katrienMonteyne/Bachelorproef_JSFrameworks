@@ -14,6 +14,17 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
-    return {heroes};
+    const users = [
+      {
+        id:1,
+        firstname: null,
+        lastname : null,
+        age: null,
+        address: null,
+        sex: null,
+        email: null
+      }
+    ];
+    return {heroes, users};
   }
 }
