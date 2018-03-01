@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfielComponent } from './profiel/profiel.component';
 import { UserService } from './user.service';
 import { PersonaliaComponent } from './personalia/personalia.component';
+import { LanguageComponent } from './language/language.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PersonaliaComponent } from './personalia/personalia.component';
     MessagesComponent,
     DashboardComponent,
     ProfielComponent,
-    PersonaliaComponent
+    PersonaliaComponent,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,

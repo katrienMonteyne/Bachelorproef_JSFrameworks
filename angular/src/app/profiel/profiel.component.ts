@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import {User} from '../user';
 import {UserService} from '../user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profiel',
@@ -12,31 +13,31 @@ export class ProfielComponent implements OnInit {
   user : User;
   personalia : boolean = true;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+   }
 
   ngOnInit() {
-    this.getUser();
+   this.getUser();
   }
 
   getUser() : void {
-    this.userService.getUser(1).subscribe(user => this.user = user);
+
+    this.userService.getUser(1).subscribe(res => this.user = res);
+    //this.http.get('http://localhost:3000/users/1').subscribe(res => console.log("res.toString()"));
   }
 
   editPersonalia() : void {
     console.log("KLIK");
     
     this.personalia = !this.personalia;
-  
   }
 
   onEdited(edited : boolean) : void {
-
-    console.log("edited");
-    console.log("*************");
-    console.log(edited);
-
     this.personalia = edited;
   }
 
+  onNewUser(editedUser : User) :void {
+   
+  }
 
 }

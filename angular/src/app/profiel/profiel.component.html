@@ -29,14 +29,25 @@
     U heeft nog geen email opgegeven.
   </p>
 
-  <button (click)="editPersonalia()">Wijzig uw gegevens</button>
+  <button type="button" (click)="editPersonalia()">Wijzig uw gegevens</button>
 
 
 </div>
-<app-personalia [personalia]="personalia" [user]="user" (onEdited)="onEdited($event)"></app-personalia>
+<app-personalia [personalia]="personalia" 
+                [user]="user" 
+                (onEdited)="onEdited($event)"
+                (onNewUser)="onNewUser($event)"></app-personalia>
 <br>
+
+
 <h2>Vaardigheden</h2>
 <hr>
+
+
+
 <br>
-<h2>Werkervaring</h2>
+<h2>Talen</h2>
 <hr>
+
+Voeg een taal toe
+<button>Toevoegen</button>

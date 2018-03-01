@@ -17,12 +17,14 @@ export class InMemoryDataService implements InMemoryDbService {
     const users = [
       {
         id:1,
-        firstname: null,
+        firstname: "Katrien",
         lastname : null,
         age: null,
         address: null,
         sex: null,
-        email: null
+        email: null,
+        skills: [],
+        languages: []
       }
     ];
     return {heroes, users};
