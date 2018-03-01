@@ -26,8 +26,16 @@ export class ProfielComponent implements OnInit {
     console.log("KLIK");
     
     this.personalia = !this.personalia;
-    
+  
+  }
 
+  onEdited(edited : boolean) : void {
+
+    console.log("edited");
+    console.log("*************");
+    console.log(edited);
+
+    this.personalia = edited;
   }
 
 

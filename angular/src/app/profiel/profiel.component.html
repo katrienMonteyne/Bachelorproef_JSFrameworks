@@ -2,12 +2,15 @@
 <hr>
 <div *ngIf="user && personalia">
 
-  <p>{{user.firstname}} {{user.lastname}}</p>
+  {{user.firstname}} 
   <p *ngIf="user.firstname == null || 
-            user.lastname == null ||
-            user.firstname == '' ||
+            user.firstname == ''" class="red">
+    U heeft nog geen voornaam opgegeven.
+  </p>
+ {{user.lastname}}
+  <p *ngIf="user.lastname == null ||
             user.lastname == ''" class="red">
-    U heeft nog geen naam opgegeven.
+    U heeft nog geen achternaam opgegeven.
   </p>
   <p>{{user.age}}</p>
   <p *ngIf="user.age == null || user.age <= 0" class="red">
@@ -30,7 +33,7 @@
 
 
 </div>
-<app-personalia [personalia]="personalia" [user]="user"></app-personalia>
+<app-personalia [personalia]="personalia" [user]="user" (onEdited)="onEdited($event)"></app-personalia>
 <br>
 <h2>Vaardigheden</h2>
 <hr>

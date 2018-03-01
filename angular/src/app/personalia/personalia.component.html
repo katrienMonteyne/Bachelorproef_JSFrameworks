@@ -1,9 +1,28 @@
 <div *ngIf="personalia == false">
+  <form name="userForm" #userForm="ngForm">
+    <label for="firstname">Voornaam: </label>
+    <input name="firstname" id="firstname" class="form-control" minlength="3" [(ngModel)]="user.firstname">
 
-  <input name="name" class="form-control"  minlength="3" appForbiddenName="bobo" [(ngModel)]="user.firstname" #name="ngModel">
+    <label for="lastname">Achternaam: </label>
+    <input name="lastname" id="lastname" class="form-control" minlength="3" [(ngModel)]="user.lastname">
 
+    <label for="age">Leeftijd: </label>
+    <input type="number" name="age" id="age" class="form-control" [(ngModel)]="user.age">
 
+    <label for="address">Adres: </label>
+    <input name="address" id="address" class="form-control" [(ngModel)]="user.address">
 
-<button (click)="save()"> Save </button>
+    <label for="sex">Geslacht: </label>
+    <label for="m">Man </label>
+    <input type="radio" name="sex" id="m" value="man" [(ngModel)]="user.sex">
+    <label for="v">Vrouw </label>
+    <input type="radio" name="sex" id="v" value="vrouw" [(ngModel)]="user.sex">
 
+    <label for="email">Emailadres: </label>
+    <input type="email" name="email" id="email" required class="form-control" email [(ngModel)]="user.email" #email="ngModel">
+
+    <span *ngIf="email.invalid && email.dirty" class="red">Email is niet valid</span>
+
+    <button [disabled]="userForm.form.invalid && email.dirty" (click)="save()"> Save </button>
+  </form>
 </div>
