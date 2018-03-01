@@ -1,51 +1,48 @@
 <h2>Personalia</h2>
+<button type="button" (click)="editPersonalia()">Wijzig uw gegevens</button>
 <hr>
 <div *ngIf="user && personalia">
 
-  {{user.firstname}}
+  <div class="info">
+      <p> Naam: {{user.firstname}}   {{user.lastname}} </p>
+      <p> {{user.sex}} {{user.age}}</p>
+      <p>{{user.address}}</p>
+      <p>{{user.email}}</p>
+  </div>
+
+
+
   <p *ngIf="user.firstname == null || 
             user.firstname == ''" class="red">
-    U heeft nog geen voornaam opgegeven.
-  </p>
-  {{user.lastname}}
+    U heeft nog geen voornaam opgegeven.</p>
   <p *ngIf="user.lastname == null ||
             user.lastname == ''" class="red">
-    U heeft nog geen achternaam opgegeven.
-  </p>
-  <p>{{user.age}}</p>
+    U heeft nog geen achternaam opgegeven.</p>
   <p *ngIf="user.age == null || user.age <= 0" class="red">
-    U heeft nog geen leeftijd opgegeven.
-  </p>
-  <p>{{user.address}}</p>
+    U heeft nog geen leeftijd opgegeven.</p>
   <p *ngIf="user.address == null || user.address == ''" class="red">
-    U heeft uw adres nog niet opgegeven.
-  </p>
-  <p>{{user.sex}}</p>
+    U heeft uw adres nog niet opgegeven.</p>
   <p *ngIf="user.sex == null || user.sex == ''" class="red">
-    U heeft nog geen geslacht geselecteerd.
-  </p>
-  <p>{{user.email}}</p>
+    U heeft nog geen geslacht geselecteerd.</p>
   <p *ngIf="user.email == null || user.email ==''" class="red">
-    U heeft nog geen email opgegeven.
-  </p>
+    U heeft nog geen email opgegeven.</p>
 
-  <button type="button" (click)="editPersonalia()">Wijzig uw gegevens</button>
 
 
 </div>
 <app-personalia [personalia]="personalia" [user]="user" (onPerEdited)="onPerEdited($event)"></app-personalia>
 <br>
 
-
 <h2>Talen</h2>
+<button  (click)="editLanguage()">Wijzigen</button>
 <hr>
 <div *ngIf="user && language">
   <div *ngIf="user.languages.length > 0">
-    <span *ngFor="let taal of user.languages">{{taal.language}}</span>
+    <p *ngFor="let taal of user.languages">{{taal.language}}</p>
   </div>
   <p *ngIf="user.languages.length == 0">
     Voeg een taal toe die je beheerst
   </p>
-  <button  (click)="editLanguage()">Wijzigen</button>
+
 </div>
 <app-language [language]="language" [user]="user"  (onLangEdited)="onLangEdited($event)"></app-language>

@@ -1,10 +1,10 @@
-*{
-    text-align: center;
+.taal{
+    padding: 3px 10px;
 }
-
 a{
-    color: blue;
+ 
 
+    color: blue;
 }
 a:hover{
     cursor: pointer;

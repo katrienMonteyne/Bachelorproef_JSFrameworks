@@ -2,7 +2,7 @@
 
 
   <div *ngIf="user.languages.length > 0">
-      <div *ngFor="let taal of user.languages">
+      <div *ngFor="let taal of user.languages" class="taal">
         {{taal.language}}
         <a (click)="delete(taal)">Verwijderen</a>
       </div>
