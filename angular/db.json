@@ -1,16 +1,21 @@
 {
-  "api": [
+  "users": [
     {
-      "users": [
+      "id": 1,
+      "firstname": "Katrien",
+      "lastname": null,
+      "age": null,
+      "address": null,
+      "sex": "vrouw",
+      "email": "katrien@uitzendbureau.nl",
+      "languages": [
         {
-          "id": 1,
-          "firstname": null,
-          "lastname": null,
-          "age": null,
-          "address": null,
-          "sex": null,
-          "email": null,
-          "languages": []
+          "language": "Engels",
+          "control": "1"
+        },
+        {
+          "language": "Spaans",
+          "control": "0"
         }
       ]
     }

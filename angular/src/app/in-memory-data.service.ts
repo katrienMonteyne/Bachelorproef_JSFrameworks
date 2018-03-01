@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
-    const users = [
+    const usersTest = [
       {
         id:1,
         firstname: "Katrien",
@@ -27,6 +27,6 @@ export class InMemoryDataService implements InMemoryDbService {
         languages: []
       }
     ];
-    return {heroes, users};
+    return {heroes, usersTest};
   }
 }

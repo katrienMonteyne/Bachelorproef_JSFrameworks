@@ -11,11 +11,13 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-type' : 'application/j
 export class UserService {
 
   //private userURL = "api/users";
-   private userJSONURL = "http://localhost:3000/api/users";
+   private userJSONURL = "http://localhost:3000/users";
   constructor(private http: HttpClient) { }
 
   getUser(id: number) : Observable<User>{
     const url = `${this.userJSONURL}/${id}`;
+
+    console.log(url);
 
     return this.http.get<User>(url).pipe(
       catchError(this.handleError<any>(`getuser`))
@@ -23,7 +25,8 @@ export class UserService {
   }
 
   updateUser(user: User) : Observable<any>{
-    return this.http.put(this.userJSONURL, user, httpOptions).pipe(
+   
+    return this.http.put(this.userJSONURL + '/1', user, httpOptions).pipe(
       catchError(this.handleError<any>(`updateUser`))
     );
   }

@@ -23,7 +23,8 @@ export class ProfielComponent implements OnInit {
 
   getUser() : void {
 
-    this.userService.getUser(1).subscribe(res => this.user = res);
+    this.userService.getUser(1).subscribe(res => {this.user = res; console.log(res)});
+    
 
     // const x = this.userService.getUser(1);
     // x.subscribe(data => console.log(JSON.stringify(data)));
