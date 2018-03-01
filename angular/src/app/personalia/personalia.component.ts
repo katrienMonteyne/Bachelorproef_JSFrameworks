@@ -15,33 +15,24 @@ export class PersonaliaComponent implements OnInit {
   @Input() personalia: boolean;
   @Input() user: User;
 
-  @Output() onEdited = new EventEmitter<boolean>();
-  @Output() onNewUser = new EventEmitter<User>();
+  @Output() onPerEdited = new EventEmitter<boolean>();
   
- 
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
 
-
   }
 
-
-
   save() : void {
-
 
     this.userService.updateUser(this.user).subscribe(() =>{ console.log("UPDATED")
     });
 
-    this
-
     this.personalia = true;
 
-    this.onEdited.emit(true);
-    this.onNewUser.emit(this.user);
-
+    this.onPerEdited.emit(true);
+    
   }
 
 }

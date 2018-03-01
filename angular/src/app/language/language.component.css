@@ -1,0 +1,11 @@
+*{
+    text-align: center;
+}
+
+a{
+    color: blue;
+
+}
+a:hover{
+    cursor: pointer;
+}

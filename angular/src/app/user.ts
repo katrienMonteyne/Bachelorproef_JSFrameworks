@@ -6,4 +6,5 @@ export class User {
     address: string;
     sex: string;
     email: string;
+    languages : Array<Object>;
 }

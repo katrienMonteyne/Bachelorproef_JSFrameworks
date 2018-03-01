@@ -1,5 +1,5 @@
 <div *ngIf="personalia == false">
-  <form name="userForm" #userForm="ngForm"  (ngSubmit)="onSubmit()">
+  <form name="userForm" #userForm="ngForm" >
 
     <label for="firstname">Voornaam: </label>
     <input name="firstname" id="firstname" class="form-control" minlength="3" [(ngModel)]="user.firstname">

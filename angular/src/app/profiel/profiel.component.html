@@ -2,12 +2,12 @@
 <hr>
 <div *ngIf="user && personalia">
 
-  {{user.firstname}} 
+  {{user.firstname}}
   <p *ngIf="user.firstname == null || 
             user.firstname == ''" class="red">
     U heeft nog geen voornaam opgegeven.
   </p>
- {{user.lastname}}
+  {{user.lastname}}
   <p *ngIf="user.lastname == null ||
             user.lastname == ''" class="red">
     U heeft nog geen achternaam opgegeven.
@@ -33,21 +33,19 @@
 
 
 </div>
-<app-personalia [personalia]="personalia" 
-                [user]="user" 
-                (onEdited)="onEdited($event)"
-                (onNewUser)="onNewUser($event)"></app-personalia>
+<app-personalia [personalia]="personalia" [user]="user" (onPerEdited)="onPerEdited($event)"></app-personalia>
 <br>
 
 
-<h2>Vaardigheden</h2>
-<hr>
-
-
-
-<br>
 <h2>Talen</h2>
 <hr>
-
-Voeg een taal toe
-<button>Toevoegen</button>
+<div *ngIf="user && language">
+  <div *ngIf="user.languages.length > 0">
+    <span *ngFor="let taal of user.languages">{{taal.language}}</span>
+  </div>
+  <p *ngIf="user.languages.length == 0">
+    Voeg een taal toe die je beheerst
+  </p>
+  <button  (click)="editLanguage()">Wijzigen</button>
+</div>
+<app-language [language]="language" [user]="user"  (onLangEdited)="onLangEdited($event)"></app-language>

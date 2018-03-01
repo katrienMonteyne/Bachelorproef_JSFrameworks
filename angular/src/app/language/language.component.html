@@ -1,3 +1,39 @@
-<p>
-  language works!
-</p>
+<div *ngIf="language == false">
+
+
+  <div *ngIf="user.languages.length > 0">
+      <div *ngFor="let taal of user.languages">
+        {{taal.language}}
+        <a (click)="delete(taal)">Verwijderen</a>
+      </div>
+    </div>
+  <div *ngIf="user.languages.length == 0">
+      Voeg hier een taal toe en selecteer hoe goed u het beheerst.
+    
+    </div>
+
+  <form name="languageForm" #langForm="ngForm">
+      <br>
+    <label for="taal">Voeg een taal toe</label>
+
+    <select required name="taal" id="taal" [(ngModel)]="selectedValue">
+      <option *ngFor="let language of langList" value="{{language}}" >{{language}}</option>
+    </select>
+
+    <br>
+
+    <label for="beheersing">Beheersing van deze taal</label>
+    <select required name="beheersing" id="beheersing" [(ngModel)]="selectedControl">
+      <option value="0" selected>Matig</option>
+      <option value="1">Goed</option>
+      <option value="2">Uitstekend</option>
+    </select>
+
+    <button [disabled]="langForm.invalid" type="button" (click)="add()">Toevoegen</button>
+
+  </form>
+
+  <button (click)="save()">
+    Opslaan
+  </button>
+</div>
