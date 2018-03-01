@@ -7,6 +7,8 @@ import { UserService } from '../user.service';
   templateUrl: './personalia.component.html',
   styleUrls: ['./personalia.component.css']
 })
+
+//testje
 export class PersonaliaComponent implements OnInit {
   @Input() personalia: boolean;
   @Input() user: User;
