@@ -107,9 +107,8 @@ class Editpersonalia extends React.Component {
 
     if(this.props.user){
       user = this.props.user;
-      this.setState({
-        user: this.props.user
-      });
+      this.setState({user: this.props.user});
+      
       // elementen mogen niet null zijn voor in het input field => lege string declareren
       if(user.firstname  == null){ user.firstname =''}
       if(user.lastname  == null){ user.lastname =''}
@@ -117,7 +116,7 @@ class Editpersonalia extends React.Component {
       if(user.sex  == null){ user.sex =''}
       if(user.address  == null){ user.address =''}
       if(user.email  == null){ user.email =''}
-      firstname = <input type="text" name="name" value={user.firstname} onChange={this.handleChange}/>;
+      firstname = <input type="text" name="name" value={this.state.user.firstname} onChange={this.handleChange}/>;
       lastname = <input type="text" name="name" value={user.lastname}/>
       age = <input type="text" name="name" value={user.age}/>
       sex = <input type="text" name="name" value={user.sex}/>
