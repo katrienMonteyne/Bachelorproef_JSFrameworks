@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Katrien",
+      "lastname": null,
+      "age": "21",
+      "address": null,
+      "sex": "Vrouw",
+      "email": "",
+      "languages": []
+    }
+  ]
+}
