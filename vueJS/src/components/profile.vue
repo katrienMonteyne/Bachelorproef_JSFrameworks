@@ -5,29 +5,41 @@
     <div>
       <h2>Personalia</h2>
       <div v-show="personaliaComp">
-
         <hr>
-        <p> {{user.firstname}} {{user.lastname}}</p>
-        <p v-if="user.firstname == null && user.lastname ==null" class="red">
-          U hebt uw naam nog niet ingevuld.
-        </p>
-        <p> {{user.age}}</p>
-        <p v-if="user.age == null" class="red">
-          U hebt uw leeftijd nog niet ingegeven.
-        </p>
-        <p> {{user.address}}</p>
+        <div class="gegevens">
+          <div>
+            <p>Naam: </p>
+            <p>Leeftijd: </p>
+            <p>Adres: </p>
+            <p>Geslacht: </p>
+            <p>Email: </p>
+          </div>
+                  <div>
+              <p> {{user.firstname}} {{user.lastname}}</p>
+              <p v-if="user.firstname == null && user.lastname ==null" class="red">
+                U hebt uw naam nog niet ingevuld.
+              </p>
+              <p> {{user.age}}</p>
+              <p v-if="user.age == null" class="red">
+                U hebt uw leeftijd nog niet ingegeven.
+              </p>
+              <p> {{user.address}}</p>
+              <p v-if="user.address == null" class="red">
+                U hebt uw adres nog niet ingegeven.
+              </p>
+              <p>{{user.sex}}</p>
+              <p v-if="user.sex == null" class="red">
+                U hebt uw geslacht nog niet ingegeven.
+              </p>
+              <p> {{user.email}}</p>
+              <p v-if="user.email == null || user.email ==''" class="red">
+                U hebt uw email nog niet ingegeven.
+              </p>
+            </div>
+        </div>
 
-        <p v-if="user.address == null" class="red">
-          U hebt uw adres nog niet ingegeven.
-        </p>
-        <p>{{user.sex}}</p>
-        <p v-if="user.address == null" class="red">
-          U hebt uw geslacht nog niet ingegeven.
-        </p>
-        <p> {{user.email}}</p>
-        <p v-if="user.email == null" class="red">
-          U hebt uw email nog niet ingegeven.
-        </p>
+
+
         <p class="klikable" @click="swapPersonalia"> WIJZIG UW GEGEVENS HIER</p>
       </div>
       <div :is="perscurrentcomp">
@@ -40,10 +52,10 @@
       <hr>
         <div v-if="user.languages.length > 0">
           <p v-for="lang in user.languages" v-bind:key="lang.id">
-            {{lang}}
+            {{lang.taal}} <span @click="deleteLanguage(lang)" class="klikable">Verwijderen</span>
           </p>
         </div>
-        <p class="klikable" @click="swapLanguages"> WIJZIG HIER UW TALEN</p>
+        <p v-show="languageComp" class="klikable" @click="swapLanguages"> WIJZIG HIER UW TALEN</p>
          <div :is="langcurrentComp"></div>
     </div>
 
@@ -99,6 +111,26 @@ export default {
         ? (this.languageComp = false)
         : (this.languageComp = true);
       this.langcurrentComp = languages;
+    },
+    deleteLanguage: function (taal){
+      console.log(this.user.languages.length);
+
+      if (this.user.languages.length > 0) {
+
+      this.user.languages = this.user.languages.filter(obj => obj !== taal);
+                  axios
+                      .patch('http://localhost:3000/users/1',{
+                          languages: this.user.languages
+                      })
+                      .then(response => {
+                          console.log(response);
+                      })
+                      .catch(e => {
+                          console.log(e);
+                      });
+
+    }
+
     }
   },
   beforeMount() {
@@ -115,6 +147,10 @@ export default {
 </script>
 
 <style>
+template{
+  padding-bottom: 200px;
+  height: auto;
+}
 p.red {
   color: red;
 }
@@ -125,5 +161,17 @@ p.red {
 
 .klikable:hover {
   cursor: pointer;
+}
+
+.gegevens{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+.gegevens >div:first-child {
+  width: auto;
+  padding-right: 20px;
+  font-weight: bold;
 }
 </style>

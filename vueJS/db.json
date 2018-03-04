@@ -3,12 +3,17 @@
     {
       "id": 1,
       "firstname": "Katrien",
-      "lastname": null,
+      "lastname": "",
       "age": "21",
       "address": null,
       "sex": "Vrouw",
       "email": "",
-      "languages": []
+      "languages": [
+        {
+          "taal": "Nederlands",
+          "beheersing": "2"
+        }
+      ]
     }
   ]
 }

@@ -1,7 +1,17 @@
-form{
-    background-color: beige;
-}
+
 li{
     list-style-type: none;
     color:red;
+}
+div > label {
+    padding-right: 20px;
+    padding-top: 16px;
+    
+    display: block;
+    height: 21px;
+
+}
+
+p{
+    text-align: center;
 }

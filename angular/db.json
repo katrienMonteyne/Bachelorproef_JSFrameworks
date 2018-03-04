@@ -10,12 +10,12 @@
       "email": "katrien@uitzendbureau.nl",
       "languages": [
         {
-          "language": "Engels",
-          "control": "1"
-        },
-        {
           "language": "Spaans",
           "control": "0"
+        },
+        {
+          "language": "Engels",
+          "control": "1"
         }
       ]
     }

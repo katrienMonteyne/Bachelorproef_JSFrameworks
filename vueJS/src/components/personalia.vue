@@ -1,37 +1,38 @@
 <template>
-    <div>
+    <div class="gegevens">
+        <div>
+            <label for="firstname">Voornaam: </label>
+            <label for="lastname">Achternaam: </label>
+            <label for="age">Leeftijd: </label>
+            <label for="address">Adres: </label>
+            <label for="sex">Geslacht: </label>
+            <label for="mail">Emailadres: </label>
+        </div>
         <form @change="checkForm">
             <p v-if="errors.length">
-                <b>Please correct the following error(s):</b>
                 <ul>
                     <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
                 </ul>
             </p>
-            <p>
-                <label for="firstname">Voornaam: </label>
+            <p>    
                 <input type="text" name="firstname" id="firstname" v-model="user.firstname">
             </p>
             <p>
-                <label for="lastname">Achternaam: </label>
                 <input type="text" name="lastname" id="lastname" v-model="user.lastname">
             </p>
-            <p>
-                <label for="age">Leeftijd: </label>
+            <p>  
                 <input type="number" name="age" id="age" v-model="user.age">
             </p>
             <p>
-                <label for="address">Adres: </label>
                 <input type="text" name="address" id="address" v-model="user.address">
             </p>
-            <p>
-                <label for="sex">Geslacht: </label>
+            <p>      
                 <label for="m">Man: </label>
                 <input type="radio" value="Man" id="m" name="sex" v-model="user.sex">
                 <label for="v">Vrouw: </label>
                 <input type="radio" value="Vrouw" id="v" name="sex" v-model="user.sex">
             </p>
-            <p>
-                <label for="mail">Emailadres: </label>
+            <p>  
                 <input type="text" name="mail" id="mail" v-model="user.email">
             </p>
             <input type="button" value="SUBMIT" v-on:click="submit">
