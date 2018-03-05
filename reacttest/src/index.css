@@ -52,3 +52,27 @@ body {
     margin-left: 20px;
   }
   
+  label{
+    margin: 10px ;
+    display: inline-block;
+  }
+
+  label > input {
+    position: relative;
+  }
+ß
+  ul{
+    padding-bottom: 30px;
+  }
+
+  .clickable{
+    color: blue;
+  }
+
+  .clickable:hover{
+    cursor: pointer;
+  }
+  img{
+    height: 100px;
+    width: auto;
+  }

@@ -3,9 +3,9 @@
     {
       "id": 1,
       "firstname": "Katrien",
-      "lastname": null,
+      "lastname": "dsfa",
       "age": "21",
-      "address": null,
+      "address": "fgd",
       "sex": "Vrouw",
       "email": "",
       "languages": []

@@ -112,25 +112,22 @@ export default {
         : (this.languageComp = true);
       this.langcurrentComp = languages;
     },
-    deleteLanguage: function (taal){
+    deleteLanguage: function(taal) {
       console.log(this.user.languages.length);
 
       if (this.user.languages.length > 0) {
-
-      this.user.languages = this.user.languages.filter(obj => obj !== taal);
-                  axios
-                      .patch('http://localhost:3000/users/1',{
-                          languages: this.user.languages
-                      })
-                      .then(response => {
-                          console.log(response);
-                      })
-                      .catch(e => {
-                          console.log(e);
-                      });
-
-    }
-
+        this.user.languages = this.user.languages.filter(obj => obj !== taal);
+        axios
+          .patch("http://localhost:3000/users/1", {
+            languages: this.user.languages
+          })
+          .then(response => {
+            console.ßlog(response);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     }
   },
   beforeMount() {
@@ -147,7 +144,7 @@ export default {
 </script>
 
 <style>
-template{
+template {
   padding-bottom: 200px;
   height: auto;
 }
@@ -163,13 +160,13 @@ p.red {
   cursor: pointer;
 }
 
-.gegevens{
+.gegevens {
   background-color: #fff;
   display: flex;
   justify-content: center;
   text-align: left;
 }
-.gegevens >div:first-child {
+.gegevens > div:first-child {
   width: auto;
   padding-right: 20px;
   font-weight: bold;

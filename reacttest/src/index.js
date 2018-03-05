@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './index.css';
+import Editpersonalia from './editpersonalia';
+import Showtalen from './talen';
 
 
 class Personalia extends React.Component {
@@ -9,12 +11,21 @@ class Personalia extends React.Component {
     super(props);
     this.state = {
       user: null,
-      edit: true
+      edit: false
     }
-
+    this.handler = this.handler.bind(this);
   }
 
-  componentDidMount() {
+  handler(e) {
+    console.log(this.state.edit)
+    if (this.state.edit === true) {
+      console.log("BOEEEEE");
+      this.getUser();
+    }
+    this.setState({ edit: !this.state.edit });
+  }
+
+  getUser() {
     axios
       .get("http://localhost:3004/users/1")
       .then(response => {
@@ -22,16 +33,26 @@ class Personalia extends React.Component {
           user: response.data
         });
       })
+      .then(
+        this.forceUpdate()
+      )
       .catch(e => {
         console.log(e);
       });
+
+  }
+
+  componentDidMount() {
+
+    this.getUser();
+    
   }
 
   render() {
-
+    console.log(this.state.user);
     return (
       <div>
-        {this.state.edit ? <Editpersonalia user={this.state.user} /> : <Showpersonalia user={this.state.user} />}
+        {this.state.edit ? <Editpersonalia user={this.state.user} handler={this.handler} /> : <Showpersonalia user={this.state.user} handler={this.handler} />}
       </div>
     )
 
@@ -47,28 +68,28 @@ class Showpersonalia extends React.Component {
     if (this.props.user) {
       const user = this.props.user;
 
-      if (user.firstname != null && user.firstname != '') {
-        firstname = <p>{user.firstname}</p>
+      if (user.firstname != null && user.firstname !== '') {
+        firstname = <span>Naam: {user.firstname} </span>
       } else { firstname = <p className="red">Voornaam nog niet ingevuld</p> }
 
-      if (user.lastname != null && user.lastname != '') {
-        lastname = <p>{user.lastname}</p>
+      if (user.lastname != null && user.lastname !== '') {
+        lastname = <span> {user.lastname}</span>
       } else { lastname = <p className="red">Achternaam nog niet ingevuld</p> }
 
-      if (user.address != null && user.address != '') {
-        address = <p>{user.address}</p>
+      if (user.address != null && user.address !== '') {
+        address = <p>Adres: {user.address}</p>
       } else { address = <p className="red">Adres is nog niet ingevuld</p> }
 
-      if (user.age != null && user.age != '') {
-        age = <p>{user.age}</p>
+      if (user.age != null && user.age !== '') {
+        age = <p>Leeftijd: {user.age}</p>
       } else { age = <p className="red">Leeftijd is nog niet ingevuld</p> }
 
-      if (user.email != null && user.email != '') {
-        email = <p>{user.email}</p>
+      if (user.email != null && user.email !== '') {
+        email = <p>Email: {user.email}</p>
       } else { email = <p className="red">Emailadres is nog niet ingevuld</p> }
 
-      if (user.sex != null && user.sex != '') {
-        sex = <p>{user.sex}</p>
+      if (user.sex != null && user.sex !== '') {
+        sex = <p>Geslacht: {user.sex}</p>
       } else { sex = <p className="red">Geslacht is nog niet ingevuld</p> }
     }
 
@@ -80,82 +101,21 @@ class Showpersonalia extends React.Component {
         {age}
         {email}
         {sex}
+        <input type="button" value="wijzigen" onClick={this.props.handler} />
       </div>
     );
   }
 
 }
 
-class Editpersonalia extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      user: {firstname: null}
-    }
-    this.handleChange = this.handleChange.bind(this);
-  }
 
-  handleChange(event){
-    console.log('Boe');
-    this.props.user.firstname = event.target.value;
-  }
-
-  render() {
-
-    let user = null;
-    let firstname, lastname, age, sex, address, email;
-
-    if(this.props.user){
-      user = this.props.user;
-      this.setState({user: this.props.user});
-      
-      // elementen mogen niet null zijn voor in het input field => lege string declareren
-      if(user.firstname  == null){ user.firstname =''}
-      if(user.lastname  == null){ user.lastname =''}
-      if(user.age  == null){ user.age =''}
-      if(user.sex  == null){ user.sex =''}
-      if(user.address  == null){ user.address =''}
-      if(user.email  == null){ user.email =''}
-      firstname = <input type="text" name="name" value={this.state.user.firstname} onChange={this.handleChange}/>;
-      lastname = <input type="text" name="name" value={user.lastname}/>
-      age = <input type="text" name="name" value={user.age}/>
-      sex = <input type="text" name="name" value={user.sex}/>
-      address = <input type="text" name="name" value={user.address}/>
-      email = <input type="text" name="name" value={user.email}/>
-    }
-
-
-    return (
-      <form>
-        <label>
-          Voornaam: {firstname}
-        </label> <br/>
-        <label>
-          Achternaam: {lastname}
-        </label><br/>
-        <label>
-          Leeftijd: {age}
-        </label><br/>
-        <label>
-          Geslacht: {sex}
-        </label><br/>
-        <label>
-          Address: {address}
-        </label> <br/>
-        <label>
-          Email: {email}
-        </label>
-
-        <br/>
-        <input type="submit" value="Submit" />
-      </form>
-    )
-  }
-
-
-}
 
 ReactDOM.render(
   <Personalia />,
   document.getElementById('personalia')
+);
+
+ReactDOM.render(
+  <Showtalen />,
+  document.getElementById('talen')
 );
