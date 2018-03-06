@@ -1,6 +1,6 @@
 {{yield}}
 <article class="listing">
-    <a class="image {{if isWide " wide "}}">
+    <a {{action 'toggleImageSize'}} class="image {{if isWide " wide "}}">
         <img src="{{rental.image}}" alt="">
         <small>View Larger</small>
     </a>
@@ -9,7 +9,7 @@
         <span>Owner:</span> {{rental.owner}}
     </div>
     <div class="detail type">
-        <span>Type:</span> {{rental.category}}
+        <span>Type:</span> {{rental-property-type rental.category}} - {{rental.category}}
     </div>
     <div class="detail location">
         <span>Location:</span> {{rental.city}}
@@ -17,5 +17,5 @@
     <div class="detail bedrooms">
         <span>Number of bedrooms:</span> {{rental.bedrooms}}
     </div>
-    <p>bla</p>
+    {{location-map location=rental.city}}
 </article>
