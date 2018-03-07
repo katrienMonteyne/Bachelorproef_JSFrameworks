@@ -1,0 +1,31 @@
+<div>
+    {{#if (eq user.languages.length 0)}}
+    <p class="red"> U heeft nog geen talen geselecteerd</p>
+    {{else}} 
+        {{#each user.languages as |lan|}} 
+            {{lan.taal}} 
+        {{/each}}
+    {{/if}}
+</div>
+<br>
+{{#if (not talenEdit)}}
+    <button {{action "toggleEdit" "edit"}}> Wijzig uw talen </button>
+{{else}}
+    <div>
+        <label>Selecteer een taal die u beheerst</label>
+        <select name="taal" id="taal" onchange={{action "changeTaal" value="target.value"}}>
+            {{#each talenLijst as |taal|}}
+                <option value={{taal}}>{{taal}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <label>Selecteer hoe goed u deze taal beheerst</label>
+        <select name="beheersing" id="beheersing" onchange={{action "changeBeheersing" value="target.value"}}>
+            <option value=1>Matig</option>
+            <option value=2>Goed</option>
+            <option value=3>Uitstekend</option>
+        </select>
+    </div>
+    <button {{action "toggleEdit" "save"}}disabled={{btnDisabled}}> Opslaan </button>
+{{/if}}

@@ -1,0 +1,45 @@
+<h2>Mijn profiel</h2>
+
+<h3>Personalia</h3>
+<hr>
+<button {{action "togglePersonalia"}}>wijzig uw gegevens </button>
+<p>{{if show "BOEEEE" "YEEEAH"}}</p>
+{{#if show}}
+
+
+<div class="personalia {{if show " hidden "}}">
+
+    <p>
+        Naam: {{#if (or model.user.firstname model.lastname)}} {{model.user.firstname}} {{model.user.lastname}} {{else}}
+        <span class="red"> U heeft nog geen naam opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Leeftijd: {{#if model.user.age}} {{model.user.age}} {{else}}
+        <span class="red"> U heeft nog geen leeftijd opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Adres: {{#if model.user.address}} {{model.user.address}} {{else}}
+        <span class="red"> U heeft nog geen adres opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Geslacht: {{#if model.user.sex}} {{model.user.sex}} {{else}}
+        <span class="red"> U heeft nog geen geslacht opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Email: {{#if model.user.email}} {{model.user.email}} {{else}}
+        <span class="red"> U heeft nog geen emailadres opgegeven </span>
+        {{/if}}
+    </p>
+
+
+</div>
+{{/if}} {{personalia-edit user=model.user}}
+
+<br>
+<br>
+<h3>Talen</h3>
+<hr> hier geselecteerde talen weergeven {{outlet}}

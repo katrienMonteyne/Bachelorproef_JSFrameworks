@@ -1,3 +1,60 @@
-<p>********************************************</p>
+{{#if (not personaliaEdit)}}
+<div>
+    <p>
+        Naam: {{#if (or user.firstname user.lastname)}} {{user.firstname}} {{user.lastname}} {{else}}
+        <span class="red"> U heeft nog geen naam opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Leeftijd: {{#if user.age}} {{user.age}} {{else}}
+        <span class="red"> U heeft nog geen leeftijd opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Adres: {{#if user.address}} {{user.address}} {{else}}
+        <span class="red"> U heeft nog geen adres opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Geslacht: {{#if user.sex}} {{user.sex}} {{else}}
+        <span class="red"> U heeft nog geen geslacht opgegeven </span>
+        {{/if}}
+    </p>
+    <p>
+        Email: {{#if user.email}} {{user.email}} {{else}}
+        <span class="red"> U heeft nog geen emailadres opgegeven </span>
+        {{/if}}
+    </p>
 
-{{input value=user.lastname}}
+    <button {{action "doSomething"}}>wijzig uw gegevens </button>
+</div>
+
+{{else}}
+
+<div>
+    <p>
+        Voornaam: {{input type="text" value=user.firstname placeholder="Uw voornaam"}}
+    </p>
+    <p>
+        Achternaam: {{input type="text" value=user.lastname placeholder="Uw achternaam"}}
+    </p>
+    <p>
+        Leeftijd: {{input type="number" value=user.age placeholder="uw leeftijd"}}
+    </p>
+    <p>
+        Adres: {{input type="text" value=user.address placeholder="uw adres"}}
+    </p>
+    <p>
+        Geslacht:
+        <label for="man">Man</label>
+        {{radio-button value="Man" groupValue=user.sex name="sex" id="man"}}
+        <label for="vrouw">Vrouw</label>
+        {{radio-button value="Vrouw" groupValue=user.sex name="sex" id="vrouw"}}
+    </p>
+    <p>
+        Email: {{input type="text" value=user.email placeholder="uw emailadres"}}
+    </p>
+</div>
+
+<button {{action "doSomething"}}>Opslaan</button>
+{{/if}}

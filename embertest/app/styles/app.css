@@ -5,3 +5,14 @@
 .hidden{
     background-color: yellow;
 }
+
+img{
+    display: block;
+    position: relative;
+    height: 100px;
+    padding: 5px 0;
+}
+
+.menu{
+    height: 110px;
+}

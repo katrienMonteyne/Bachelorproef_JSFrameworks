@@ -1,0 +1,19 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "firstname": "Katrien",
+        "lastname": "",
+        "age": "21",
+        "address": null,
+        "sex": null,
+        "email": "",
+        "languages": [
+          {
+            "taal": "Nederlands",
+            "beheersing": "2"
+          }
+        ]
+      }
+    ]
+  }
