@@ -1,19 +1,28 @@
 {
-    "users": [
-      {
+  "users": [
+    {
+      "id": 1,
+      "user": {
         "id": 1,
         "firstname": "Katrien",
         "lastname": "",
         "age": "21",
-        "address": null,
-        "sex": null,
-        "email": "",
-        "languages": [
-          {
-            "taal": "Nederlands",
-            "beheersing": "2"
-          }
-        ]
+        "address": "",
+        "sex": "",
+        "email": ""
       }
-    ]
-  }
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": 2,
+        "firstname": "Niels",
+        "lastname": "",
+        "age": "23",
+        "address": "",
+        "sex": "Man",
+        "email": ""
+      }
+    }
+  ]
+}

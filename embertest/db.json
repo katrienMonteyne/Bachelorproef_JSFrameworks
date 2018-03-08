@@ -1,22 +1,25 @@
 {
-  "users": [
+  "data": [
     {
-      "id": 1,
-      "firstname": "Katrien",
-      "lastname": "",
-      "age": "21",
-      "address": null,
-      "sex": null,
-      "email": "",
-      "languages": [
+      "users": [
         {
-          "taal": "Nederlands",
-          "beheersing": "2"
+          "id": 1,
+          "firstname": "Katrien",
+          "lastname": "",
+          "age": "21",
+          "address": null,
+          "sex": null,
+          "email": "",
+          "languages": [
+            {
+              "taal": "Nederlands",
+              "beheersing": "2"
+            }
+          ]
         }
       ]
     }
   ],
-  "data": [],
   "errors": [],
   "meta": []
 }
