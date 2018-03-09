@@ -65,7 +65,7 @@
                 console.log(this.lijst)
 
                  axios
-                    .patch('http://localhost:3000/users/1',{
+                    .patch('http://localhost:4000/users/1',{
                         languages: lijst
                     })
                     .then(response => {

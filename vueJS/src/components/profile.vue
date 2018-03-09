@@ -20,15 +20,15 @@
                 U hebt uw naam nog niet ingevuld.
               </p>
               <p> {{user.age}}</p>
-              <p v-if="user.age == null" class="red">
+              <p v-if="user.age == null || user.age == ''" class="red">
                 U hebt uw leeftijd nog niet ingegeven.
               </p>
               <p> {{user.address}}</p>
-              <p v-if="user.address == null" class="red">
+              <p v-if="user.address == null || user.address == ''" class="red">
                 U hebt uw adres nog niet ingegeven.
               </p>
               <p>{{user.sex}}</p>
-              <p v-if="user.sex == null" class="red">
+              <p v-if="user.sex == null || user.sex == ''" class="red">
                 U hebt uw geslacht nog niet ingegeven.
               </p>
               <p> {{user.email}}</p>
@@ -91,7 +91,7 @@ export default {
     getUser: function() {
       // gewoon de eerste user ophalen, uit gemak
       axios
-        .get("http://localhost:3000/users/1")
+        .get("http://localhost:4000/users/1")
         .then(response => {
           this.user = response.data;
           console.log(this.user);
@@ -118,7 +118,7 @@ export default {
       if (this.user.languages.length > 0) {
         this.user.languages = this.user.languages.filter(obj => obj !== taal);
         axios
-          .patch("http://localhost:3000/users/1", {
+          .patch("http://localhost:4000/users/1", {
             languages: this.user.languages
           })
           .then(response => {

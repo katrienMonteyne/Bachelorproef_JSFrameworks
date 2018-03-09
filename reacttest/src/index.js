@@ -27,7 +27,7 @@ class Personalia extends React.Component {
 
   getUser() {
     axios
-      .get("http://localhost:3004/users/1")
+      .get("http://localhost:4000/users/1")
       .then(response => {
         this.setState({
           user: response.data

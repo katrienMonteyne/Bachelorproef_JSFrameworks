@@ -19,7 +19,7 @@ class Talen extends React.Component {
 
     getUser() {
         axios
-            .get("http://localhost:3004/users/1")
+            .get("http://localhost:4000/users/1")
             .then(response => {
                 this.setState({
                     user: response.data
@@ -39,7 +39,7 @@ class Talen extends React.Component {
         console.log(taal);
         this.state.user.languages = this.state.user.languages.filter(obj => obj != taal);
 
-        axios.patch("http://localhost:3004/users/1", {
+        axios.patch("http://localhost:4000/users/1", {
             languages : this.state.user.languages.filter(obj => obj != taal)
         })
         .then(response => {
@@ -114,7 +114,7 @@ class Edittalen extends React.Component {
 
 
         axios
-        .patch("http://localhost:3004/users/1", {
+        .patch("http://localhost:4000/users/1", {
             languages : this.state.user.languages
         })
         .then(response => {

@@ -25,7 +25,7 @@ class Editpersonalia extends React.Component {
     handleSubmit(event) {
 
         axios
-            .patch("http://localhost:3004/users/1", {
+            .patch("http://localhost:4000/users/1", {
                 firstname: this.state.user.firstname,
                 lastname: this.state.user.lastname,
                 age: this.state.user.age,

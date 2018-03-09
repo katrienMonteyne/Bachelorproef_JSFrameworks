@@ -5,13 +5,13 @@
       "firstname": "Katrien",
       "lastname": "",
       "age": "21",
-      "address": null,
-      "sex": null,
+      "address": "",
+      "sex": "vrouw",
       "email": "",
       "languages": [
         {
-          "taal": "Nederlands",
-          "beheersing": "2"
+          "taal": "Italiaans",
+          "beheersing": "1"
         }
       ]
     }

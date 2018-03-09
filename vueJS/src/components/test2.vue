@@ -24,7 +24,7 @@ export default {
   // Pushes posts to the server when called.
   postPost: function() {
      
-    axios.patch(`http://localhost:3000/posts/1`, {
+    axios.patch(`http://localhost:4000/posts/1`, {
       title: this.postBody 
     })
     .then(response => {

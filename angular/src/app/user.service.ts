@@ -11,7 +11,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-type' : 'application/j
 export class UserService {
 
   //private userURL = "api/users";
-   private userJSONURL = "http://localhost:3000/users";
+   private userJSONURL = "http://localhost:4000/users";
   constructor(private http: HttpClient) { }
 
   getUser(id: number) : Observable<User>{

@@ -1,7 +1,7 @@
 var axios = require('axios');
 
 function getUser(userID){
-  return axios.get('http://localhost:3004/users/' + userID);
+  return axios.get('http://localhost:4000/users/' + userID);
 }
 
 
