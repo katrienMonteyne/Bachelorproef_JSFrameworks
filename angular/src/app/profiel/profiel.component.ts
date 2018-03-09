@@ -22,24 +22,7 @@ export class ProfielComponent implements OnInit {
   }
 
   getUser() : void {
-
     this.userService.getUser(1).subscribe(res => {this.user = res; console.log(res)});
-    
-
-    // const x = this.userService.getUser(1);
-    // x.subscribe(data => console.log(JSON.stringify(data)));
-
-    // this.userService.getUser(1).subscribe(data => this.user = {
-      // id: data['id'],
-      // firstname:  data['firstname'],
-      // lastname:  data['lastname'],
-      // age:  data['age'],
-    //   address:  data['address'],
-    //   sex:  data['sex'],
-    //   email:  data['email'],
-    //   languages:  data['languages']
-    // }); 
-    //this.http.get('http://localhost:3000/users/1').subscribe(res => console.log("res.toString()"));
   }
 
   editPersonalia() : void {
@@ -63,4 +46,3 @@ export class ProfielComponent implements OnInit {
   }
 
 }
-// 

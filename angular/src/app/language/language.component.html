@@ -2,22 +2,22 @@
 
 
   <div *ngIf="user.languages.length > 0">
-      <div *ngFor="let taal of user.languages" class="taal">
-        {{taal.language}}
-        <a (click)="delete(taal)">Verwijderen</a>
-      </div>
+    <div *ngFor="let taal of user.languages" class="taal">
+      {{taal.language}}
+      <a (click)="delete(taal)">Verwijderen</a>
     </div>
+  </div>
   <div *ngIf="user.languages.length == 0">
-      Voeg hier een taal toe en selecteer hoe goed u het beheerst.
-    
-    </div>
+    Voeg hier een taal toe en selecteer hoe goed u het beheerst.
+
+  </div>
 
   <form name="languageForm" #langForm="ngForm">
-      <br>
+    <br>
     <label for="taal">Voeg een taal toe</label>
 
     <select required name="taal" id="taal" [(ngModel)]="selectedValue">
-      <option *ngFor="let language of langList" value="{{language}}" >{{language}}</option>
+      <option *ngFor="let language of langList" value="{{language}}">{{language}}</option>
     </select>
 
     <br>

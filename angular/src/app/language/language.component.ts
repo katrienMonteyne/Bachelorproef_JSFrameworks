@@ -19,6 +19,7 @@ export class LanguageComponent implements OnInit {
 
   @Input() language: boolean;
   @Input() user: User;
+  
   @Output() onLangEdited = new EventEmitter<boolean>();
   langList = [
     "Nederlands", "Engels", "Duits", "Frans", "Duits", "Spaans", "Italiaans", "Chinees", "Japans", "Noors", "Fins"
@@ -49,16 +50,9 @@ export class LanguageComponent implements OnInit {
   }
 
   delete(taal: Object): void {
-
-    console.log("DOE");
-
     if (this.user.languages.length > 0) {
-
       this.user.languages = this.user.languages.filter(obj => obj !== taal);
-
-
     }
-
   }
 
 }
