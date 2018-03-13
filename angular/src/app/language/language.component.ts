@@ -19,8 +19,8 @@ export class LanguageComponent implements OnInit {
 
   @Input() language: boolean;
   @Input() user: User;
-  
   @Output() onLangEdited = new EventEmitter<boolean>();
+  
   langList = [
     "Nederlands", "Engels", "Duits", "Frans", "Duits", "Spaans", "Italiaans", "Chinees", "Japans", "Noors", "Fins"
   ];
