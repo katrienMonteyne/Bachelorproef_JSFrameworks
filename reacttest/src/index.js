@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import './index.css';
 import Editpersonalia from './editpersonalia';
 import Showtalen from './talen';
+import helper from './helper';
 
 
 class Personalia extends React.Component {
@@ -26,26 +26,22 @@ class Personalia extends React.Component {
   }
 
   getUser() {
-    axios
-      .get("http://localhost:4000/users/1")
+    helper.getUserInfo(1)
       .then(response => {
         this.setState({
           user: response.data
         });
       })
-      .then(
-        this.forceUpdate()
-      )
       .catch(e => {
         console.log(e);
       });
-
   }
+
 
   componentDidMount() {
 
     this.getUser();
-    
+
   }
 
   render() {
@@ -69,27 +65,27 @@ class Showpersonalia extends React.Component {
       const user = this.props.user;
 
       if (user.firstname != null && user.firstname !== '') {
-        firstname = <span>Naam: {user.firstname} </span>
+        firstname = <span>Naam: {user.firstname} </span>;
       } else { firstname = <p className="red">Voornaam nog niet ingevuld</p> }
 
       if (user.lastname != null && user.lastname !== '') {
-        lastname = <span> {user.lastname}</span>
+        lastname = <span> {user.lastname}</span>;
       } else { lastname = <p className="red">Achternaam nog niet ingevuld</p> }
 
       if (user.address != null && user.address !== '') {
-        address = <p>Adres: {user.address}</p>
+        address = <p>Adres: {user.address}</p>;
       } else { address = <p className="red">Adres is nog niet ingevuld</p> }
 
       if (user.age != null && user.age !== '') {
-        age = <p>Leeftijd: {user.age}</p>
+        age = <p>Leeftijd: {user.age}</p>;
       } else { age = <p className="red">Leeftijd is nog niet ingevuld</p> }
 
       if (user.email != null && user.email !== '') {
-        email = <p>Email: {user.email}</p>
+        email = <p>Email: {user.email}</p>;
       } else { email = <p className="red">Emailadres is nog niet ingevuld</p> }
 
       if (user.sex != null && user.sex !== '') {
-        sex = <p>Geslacht: {user.sex}</p>
+        sex = <p>Geslacht: {user.sex}</p>;
       } else { sex = <p className="red">Geslacht is nog niet ingevuld</p> }
     }
 
