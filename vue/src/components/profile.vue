@@ -1,3 +1,4 @@
+// Het is mogelijk om een externe html file te importeren. In die file kan er gebruik gemaakt worden van de Vue richtlijnen
 <template src="../html/profile.html">
 </template>
 
@@ -6,10 +7,17 @@ import axios from "axios";
 import Personalia from "@/components/personalia";
 import languages from "@/components/language";
 
-// door de export zal de data doorgestuurd worden
-// bij andere componenten kan het opgeroepen worden door import van component te doen.
+// Door de export zal de data doorgestuurd worden
+// Bij andere componenten kan het opgeroepen worden door een import
 export default {
-  data() {
+  components: {
+    Personalia: {
+      props: {
+        usero: this.user
+      }
+    }
+  },
+  data: function() {
     return {
       personaliaComp: true,
       perscurrentcomp: null,
@@ -26,17 +34,20 @@ export default {
       }
     };
   },
+  beforeMount: function() {
+    this.getUser();
+  },
   methods: {
     getUser: function() {
-      // gewoon de eerste user ophalen, uit gemak
+      // De user ophalen a.d.h.v. ID
+      // In dit geval de eerste
       axios
         .get("http://localhost:4000/users/1")
         .then(response => {
           this.user = response.data;
-          console.log(this.user);
         })
-        .catch(e => {
-          console.log(e);
+        .catch(err => {
+          console.log(err);
         });
     },
     swapPersonalia: function() {
@@ -52,8 +63,6 @@ export default {
       this.langcurrentComp = languages;
     },
     deleteLanguage: function(taal) {
-      console.log(this.user.languages.length);
-
       if (this.user.languages.length > 0) {
         this.user.languages = this.user.languages.filter(obj => obj !== taal);
         axios
@@ -61,21 +70,11 @@ export default {
             languages: this.user.languages
           })
           .then(response => {
-            console.ßlog(response);
+            console.log(response);
           })
           .catch(e => {
             console.log(e);
           });
-      }
-    }
-  },
-  beforeMount() {
-    this.getUser();
-  },
-  components: {
-    Personalia: {
-      props: {
-        usero: this.user
       }
     }
   }
